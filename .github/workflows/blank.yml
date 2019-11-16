@@ -1,0 +1,15 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - name: Test virtualbox and VT
+      run: |
+        cat /proc/cpuinfo
+        brew cask install virtualbox
+        vboxmanage list vms
