@@ -10,6 +10,6 @@ jobs:
     steps:
     - name: Test virtualbox and VT
       run: |
-        cat /proc/cpuinfo
+        sysctl -a | grep machdep.cpu
         brew cask install virtualbox
         vboxmanage list vms
