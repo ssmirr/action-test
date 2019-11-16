@@ -5,11 +5,15 @@ on: [push]
 jobs:
   build:
 
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Test virtualbox and VT
       run: |
-        sysctl -a | grep machdep.cpu
-        brew cask install virtualbox
+        # sysctl -a | grep machdep.cpu
+        cat /proc/cpuinfo
+        # brew cask install virtualbox
+        sudo apt-get update && sudo apt-get install virtualbox
         vboxmanage list vms
+        free -m
+        df -h
