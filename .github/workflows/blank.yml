@@ -20,6 +20,7 @@ jobs:
     - name: Setup vbox
       continue-on-error: true
       run: |
+        sudo spctl kext-consent disable
         brew cask install virtualbox --verbose --debug
         brew cask doctor
         # sudo apt-get update && sudo apt-get install virtualbox
