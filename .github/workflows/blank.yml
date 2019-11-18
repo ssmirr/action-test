@@ -27,21 +27,20 @@ jobs:
       continue-on-error: true
       run: |
         ls -al
-        ls -al ../action-test
         pwd
     - name: Setup vbox
       continue-on-error: true
       run: |
-        chmod +x ../action/accept.sh
-        sudo ../action/accept.sh
+        chmod +x ./accept.sh
+        sudo ./accept.sh
     - name: Setup vbox
       continue-on-error: true
       run: |
-        sudo ../action/accept.sh
+        sudo ./accept.sh
     - name: Setup vbox
       continue-on-error: true
       run: |
-        sudo ../action/accept.sh
+        sudo ./accept.sh
     - name: Setup vbox
       continue-on-error: true
       run: |
