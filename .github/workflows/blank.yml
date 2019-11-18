@@ -28,6 +28,9 @@ jobs:
         ls -al
         ls -al ../action
         pwd
+    - name: Setup vbox
+      continue-on-error: true
+      run: |
         chmod +x ../action/accept.sh
         sudo ../action/accept.sh
     - name: Setup vbox
