@@ -9,12 +9,14 @@ jobs:
 
     steps:
     - name: Test virtualbox and VT
+      continue-on-error: true
       run: |
         sysctl -a | grep machdep.cpu
-        # cat /proc/cpuinfo
-        sudo spctl --master-disable
-        brew cask install virtualbox
-        # sudo apt-get update && sudo apt-get install virtualbox
-        vboxmanage list vms
         free -m
         df -h
+        # cat /proc/cpuinfo
+        sudo spctl --master-disable
+        brew cask install virtualbox --verbose --debug
+        brew cask doctor
+        # sudo apt-get update && sudo apt-get install virtualbox
+        vboxmanage list vms
