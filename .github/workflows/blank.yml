@@ -28,16 +28,16 @@ jobs:
         ls -al
         ls -al ../
         pwd
-        chmod +x accept.sh
-        sudo ./accept.sh
+        chmod +x ../accept.sh
+        sudo ../accept.sh
     - name: Setup vbox
       continue-on-error: true
       run: |
-        sudo ./accept.sh
+        sudo ../accept.sh
     - name: Setup vbox
       continue-on-error: true
       run: |
-        sudo ./accept.sh
+        sudo ../accept.sh
     - name: Setup vbox
       continue-on-error: true
       run: |
