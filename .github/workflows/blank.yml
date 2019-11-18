@@ -26,8 +26,9 @@ jobs:
       continue-on-error: true
       run: |
         ls -al
-        chmod +x accept.sh 
+        ls -al ../
         pwd
+        chmod +x accept.sh
         sudo ./accept.sh
     - name: Setup vbox
       continue-on-error: true
