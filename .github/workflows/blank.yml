@@ -12,10 +12,14 @@ jobs:
       continue-on-error: true
       run: |
         sysctl -a | grep machdep.cpu
-        free -m
+        # free -m
+        vm_stat
         df -h
         # cat /proc/cpuinfo
         sudo spctl --master-disable
+    - name: Setup vbox
+      continue-on-error: true
+      run: |
         brew cask install virtualbox --verbose --debug
         brew cask doctor
         # sudo apt-get update && sudo apt-get install virtualbox
