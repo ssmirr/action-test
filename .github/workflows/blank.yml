@@ -26,7 +26,7 @@ jobs:
       continue-on-error: true
       run: |
         ls -al
-        ls -al ../action
+        ls -al ../action-test
         pwd
     - name: Setup vbox
       continue-on-error: true
