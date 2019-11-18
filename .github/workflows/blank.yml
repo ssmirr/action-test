@@ -22,6 +22,23 @@ jobs:
       run: |
         sudo spctl kext-consent disable
         brew cask install virtualbox --verbose --debug
+    - name: Setup vbox
+      continue-on-error: true
+      run: |
+        chmod +x accept.sh
+        sudo ./accept.sh
+    - name: Setup vbox
+      continue-on-error: true
+      run: |
+        sudo ./accept.sh
+    - name: Setup vbox
+      continue-on-error: true
+      run: |
+        sudo ./accept.sh
+    - name: Setup vbox
+      continue-on-error: true
+      run: |
+        brew cask reinstall --force virtualbox
         brew cask doctor
         # sudo apt-get update && sudo apt-get install virtualbox
         vboxmanage list vms
