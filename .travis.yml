@@ -3,8 +3,9 @@ language: generic
 before_install:
 # [WIP] attempting to run vagrant
   - cat /proc/cpuinfo
+  - free -m
   - wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add - && sudo sh -c "echo deb https://download.virtualbox.org/virtualbox/debian bionic contrib >> /etc/apt/sources.list" && sudo apt-get update && sudo apt-get install build-essential gcc make linux-headers-$(uname -r) virtualbox-6.0 && sudo usermod -aG vboxusers $(whoami)
-  - npm install -g ottomatica/Baker#dev
+  - npm install -g ottomatica/Baker#master
   - baker status
 #  - ssh default dmesg && vagrant destroy -f
   - ls

@@ -1,6 +1,6 @@
 name: baker-example
 vm: 
-  memory: 512
+  memory: 1024
 lang:
   - python2
 commands:
