@@ -26,7 +26,7 @@ before_install:
   - baker bake
   - baker status
   - python --version
-  - baker run demo
+  - baker run python_version
   - baker run whoami
   - baker delete
   - vboxmanage list vms
