@@ -10,6 +10,7 @@ before_install:
   - ls
   - baker bake
   - baker status
+  - python --version
   - baker run demo
   - baker run whoami
   - baker delete
