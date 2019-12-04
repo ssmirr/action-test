@@ -1,0 +1,8 @@
+name: python-container
+container: {}
+lang:
+  - python2
+commands:
+  python_version: python --version
+  whoami: whoami
+  
