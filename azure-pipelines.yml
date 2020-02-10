@@ -10,5 +10,5 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: cat /proc/cpuinfo | grep vmx
+- script: cat /proc/cpuinfo
   displayName: Check virtualization
