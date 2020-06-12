@@ -1,19 +1,12 @@
-os: osx
-osx_image: xcode11  # Python 3.7.2 running on macOS 10.14.3
-# dist: bionic
+os: linux
+dist: bionic
 language: generic
 before_install:
-  - sysctl -a | grep machdep.cpu
-  - vm_stat
-  - df -h
-  - sudo spctl --master-disable
-  - sudo spctl kext-consent disable
-  - brew cask install virtualbox --verbose --debug
   - vboxmanage list vms
 
-  # - cat /proc/cpuinfo
-  # - free -m
-  # - wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add - && sudo sh -c "echo deb https://download.virtualbox.org/virtualbox/debian bionic contrib >> /etc/apt/sources.list" && sudo apt-get update && sudo apt-get install build-essential gcc make linux-headers-$(uname -r) virtualbox-6.0 && sudo usermod -aG vboxusers $(whoami)
+  - cat /proc/cpuinfo
+  - free -m
+  - wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add - && sudo sh -c "echo deb https://download.virtualbox.org/virtualbox/debian bionic contrib >> /etc/apt/sources.list" && sudo apt-get update && sudo apt-get install build-essential gcc make linux-headers-$(uname -r) virtualbox-6.0 && sudo usermod -aG vboxusers $(whoami)
 
   # - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
   # - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
@@ -30,12 +23,9 @@ before_install:
   # - slim run micro alpine3.8-simple
   # - slim vms
 
-  - npm install -g ssmirr/Baker#dev
-  - ls
-  - baker bake
-  - baker status
-  - python --version
-  - baker run python_version
-  - baker run whoami
-  - baker delete
+  - npm install -g ssmirr/bakerx
+  - bakerx pull cloud-images.ubuntu.com bionic
+  - bakerx run bio bionic --ip 192.168.33.10
+  - export ssh_cmd=$(bakerx ssh-info bio)
+  - $ssh_cmd whoami
   - vboxmanage list vms
