@@ -7,8 +7,12 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'macOS-latest'
 
 steps:
 - script: cat /proc/cpuinfo
   displayName: Check virtualization
+- script: vboxmanage --version
+  displayName: Check vbox version
+- script: vboxmanage list vms
+  displayName: Check list of vms
