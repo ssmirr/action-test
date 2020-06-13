@@ -26,6 +26,8 @@ before_install:
   - npm install -g ottomatica/bakerx
   - bakerx pull cloud-images.ubuntu.com bionic
   - bakerx run bio bionic --ip 192.168.33.10
+  - ls -al /home/travis/.bakerx/insecure_private_key
+  - cat /home/travis/.bakerx/insecure_private_key
   - export ssh_cmd=$(bakerx ssh-info bio)
   - $ssh_cmd whoami
   - vboxmanage list vms
