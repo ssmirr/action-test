@@ -23,7 +23,7 @@ before_install:
   # - slim run micro alpine3.8-simple
   # - slim vms
 
-  - npm install -g ssmirr/bakerx
+  - npm install -g ottomatoca/bakerx
   - bakerx pull cloud-images.ubuntu.com bionic
   - bakerx run bio bionic --ip 192.168.33.10
   - export ssh_cmd=$(bakerx ssh-info bio)

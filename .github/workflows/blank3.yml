@@ -11,9 +11,10 @@ jobs:
     - uses: actions/checkout@v1
     - name: Run a multi-line script
       run: |
+        cat /proc/cpuinfo
         wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add - && sudo sh -c "echo deb https://download.virtualbox.org/virtualbox/debian bionic contrib >> /etc/apt/sources.list" && sudo apt-get update && sudo apt-get install build-essential gcc make linux-headers-$(uname -r) virtualbox-6.0 && sudo usermod -aG vboxusers $(whoami)
         vboxmanage list vms
-        npm install -g ssmirr/bakerx
+        npm install -g ottomatoca/bakerx
         bakerx pull cloud-images.ubuntu.com bionic
         bakerx run bio bionic --ip 192.168.33.10
         export ssh_cmd=$(bakerx ssh-info bio)
