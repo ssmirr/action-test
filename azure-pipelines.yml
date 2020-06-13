@@ -10,7 +10,7 @@ pool:
   vmImage: 'macOS-latest'
 
 steps:
-- script: cat /proc/cpuinfo
+- script: sysctl -a | grep machdep.cpu
   displayName: Check virtualization
 - script: vboxmanage --version
   displayName: Check vbox version
