@@ -13,12 +13,12 @@ jobs:
       run: vboxmanage list vms
     - name: Run a multi-line script
       run: |
-        free -m
+        vboxmanage --version
         sudo npm install -g ottomatica/bakerx
         sudo npm install -g opunit
         bakerx pull cloud-images.ubuntu.com bionic
         bakerx run bio bionic --ip 192.168.33.10
-        export ssh_cmd=$(bakerx ssh-info bio
+        export ssh_cmd=$(bakerx ssh-info bio | tr -d '"')
         $ssh_cmd whoami
         vboxmanage list vms
         bakerx delete vm bio
