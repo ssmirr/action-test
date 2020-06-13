@@ -10,7 +10,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run a one-line script
-      run: ls -al
+      run: vboxmanage list vms
     - name: Run a multi-line script
       run: |
-        pwd
+        sudo npm install -g ottomatica/bakerx
+        sudo npm install -g opunit
