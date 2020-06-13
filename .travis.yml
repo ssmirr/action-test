@@ -2,12 +2,12 @@ os: linux
 dist: bionic
 language: generic
 before_install:
-  - vboxmanage list vms
+  
 
   - cat /proc/cpuinfo
   - free -m
   - wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add - && sudo sh -c "echo deb https://download.virtualbox.org/virtualbox/debian bionic contrib >> /etc/apt/sources.list" && sudo apt-get update && sudo apt-get install build-essential gcc make linux-headers-$(uname -r) virtualbox-6.0 && sudo usermod -aG vboxusers $(whoami)
-
+  - vboxmanage list vms
   # - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
   # - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
   # - sudo apt-get update
