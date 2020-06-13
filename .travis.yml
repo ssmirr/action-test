@@ -31,5 +31,7 @@ before_install:
   - sudo chmod -R 600 ~/.bakerx/insecure_private_key
   - ls -al /home/travis/.bakerx/insecure_private_key
   - export ssh_cmd=$(bakerx ssh-info bio)
+  - echo $ssh_cmd
+  - ssh -q -i ~/.bakerx/insecure_private_key -p 2002 -o StrictHostKeyChecking=no vagrant@127.0.0.1 whoami
   - $ssh_cmd whoami
   - vboxmanage list vms
